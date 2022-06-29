@@ -14,18 +14,34 @@
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/main.css" />
     <link rel="stylesheet" href="./styles/home.css" />
-    <title>Cool Web App</title>
+    <title>Shopping List App</title>
 </head>
 
 <body>
     <header>
         <img src="./assets/html_css_js.png">
-        <h1>Cool Web App</h1>
+        <h1>Your Shopping List</h1>
         <div id="user"></div>
     </header>
 
     <main>
-
+        <section id="contents">
+            <form>
+                <h2>Add an Item:</h2>
+                <label>
+                    Item:
+                    <input name="item">
+                </label>
+                <label>
+                    Quantity:
+                    <input name="quantity" type="number">
+                </label>
+                <button id="add-button">Add Item To List</button>
+            </form>
+            <div id="list-display">
+                <ul id="shopping-list"></ul>
+            </div>
+        </section>
     </main>
 
     <footer>&copy;2022 Aspiring Software Developer</footer>
