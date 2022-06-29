@@ -1,5 +1,6 @@
 export default function createShoppingList(root) {
     return ({ items }) => {
+        root.innerHTML = '';
         for (const item of items) {
             root.append(listItem({ item }));
         }
