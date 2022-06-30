@@ -33,9 +33,9 @@ function listItem({ item, handleBuy }) {
     const listItem = document.createElement('span');
     listItem.textContent = item.item;
     if (item.quantity) {
-        const itemQuanitity = document.createElement('span');
-        itemQuanitity.textContent = `(${item.quantity})`;
-        li.append(checkbox, listItem, itemQuanitity);
+        const itemQuantity = document.createElement('span');
+        itemQuantity.textContent = `(${item.quantity})`;
+        li.append(checkbox, listItem, itemQuantity);
     }    
     else {
         li.append(checkbox, listItem);
