@@ -17,6 +17,16 @@ export async function addItem(item, quantity) {
     return response.data;
 }
 
+export async function updateItem(item) {
+    const response = await client
+        .from('shopping-list')
+        .update(item)
+        .match({ id: item.id })
+        .single();
+    
+    return response.data;
+}
+
 export async function clearItems() {
     const response = await client
         .from('shopping-list')
