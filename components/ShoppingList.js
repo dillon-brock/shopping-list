@@ -1,8 +1,17 @@
 export default function createShoppingList(root, { handleBuy }) {
+
+    const list = root.querySelector('ul');
+
     return ({ items }) => {
-        root.innerHTML = '';
-        for (const item of items) {
-            root.append(listItem({ item, handleBuy }));
+        if (!items.length) {
+            root.classList.add('hidden');
+        }
+        else {
+            root.classList.remove('hidden');
+            list.innerHTML = '';
+            for (const item of items) {
+                list.append(listItem({ item, handleBuy }));
+            }
         }
     };
 }
@@ -12,21 +21,25 @@ function listItem({ item, handleBuy }) {
     li.classList.add('item');
     item.bought ? li.classList.add('bought') : li.classList.remove('bought');
 
-    const button = document.createElement('button');
-    button.textContent = 'BUY';
+    const checkbox = document.createElement('input');
+    checkbox.setAttribute('type', 'checkbox');
 
-    button.addEventListener('click', () => {
+    checkbox.addEventListener('change', () => {
         handleBuy(item);
     });
 
-    const p = document.createElement('p');
+    checkbox.checked = item.bought;
+
+    const listItem = document.createElement('span');
+    listItem.textContent = item.item;
     if (item.quantity) {
-        p.textContent = `${item.item}  x${item.quantity}`;
+        const itemQuanitity = document.createElement('span');
+        itemQuanitity.textContent = `(${item.quantity})`;
+        li.append(checkbox, listItem, itemQuanitity);
     }    
     else {
-        p.textContent = item.item;
+        li.append(checkbox, listItem);
     }
-    li.append(button, p);
 
     return li;
 

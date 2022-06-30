@@ -25,9 +25,9 @@
     </header>
 
     <main>
-        <section id="contents">
-            <form>
-                <h2>Add an Item:</h2>
+        <form>
+            <h2>Add an Item:</h2>
+            <div id="inputs">
                 <label>
                     Item:
                     <input name="item">
@@ -37,7 +37,9 @@
                     <input name="quantity" type="number">
                 </label>
                 <button id="add-button">Add Item To List</button>
-            </form>
+            </div>
+        </form>
+        <section id="contents">
             <div id="list-display">
                 <ul id="shopping-list"></ul>
                 <button id="clear-button">CLEAR LIST</button>

@@ -54,7 +54,7 @@ const User = createUser(
     { handleSignOut }
 );
 
-const ShoppingList = createShoppingList(document.querySelector('#shopping-list'), { handleBuy });
+const ShoppingList = createShoppingList(document.querySelector('#contents'), { handleBuy });
 const AddItemForm = createAddItemForm(document.querySelector('form'), { handleAddItem });
 const ClearButton = createClearButton(document.querySelector('#clear-button'), { handleClearItems });
 

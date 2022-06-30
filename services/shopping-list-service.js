@@ -1,3 +1,4 @@
+import { getUser } from './auth-service.js';
 import { client } from './client.js';
 
 export async function getAllItems() {
@@ -31,7 +32,7 @@ export async function clearItems() {
     const response = await client
         .from('shopping-list')
         .delete()
-        .neq('id', -1);
+        .match({ user_id: getUser().id });
     
     return response.data;
 }
